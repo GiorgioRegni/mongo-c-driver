@@ -1874,6 +1874,8 @@ _mongoc_topology_description_check_compatible (
          continue;
       }
 
+#if 0
+      // XXX ignore this for CosmosDB which has a version reporting issue
       if (sd->min_wire_version > WIRE_VERSION_MAX) {
          bson_set_error (
             &td->compatibility_error,
@@ -1894,6 +1896,7 @@ _mongoc_topology_description_check_compatible (
             sd->host.host_and_port,
             sd->max_wire_version);
       }
+#endif
    }
 }
 
